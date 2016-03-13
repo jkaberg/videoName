@@ -1,19 +1,17 @@
-videoName
+# videoName
 ---
 
 An simple tool to match an renamed media file (based on a hash value) against Opensubtitles database.
 
 Nice to have if you renamed a few movies/series and want to rollback to the original filename.
 
-# Usage
----
+## Usage
 ```
 /path/to/script.py -user *username* -pass *password* -p /path/to/media/file.mkv
 ```
 
 
-# Example output
----
+## Example output
 ```
 FileName: Runner.Runner.2013.720p.AVC.AC3-IDK
 Path: /path/to/media/Runner.Runner.2013.720p.AVC.AC3-IDK/Runner.Runner.2013.720p.AVC.AC3-IDK.mkv
