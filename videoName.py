@@ -5,6 +5,7 @@ import os
 import sys
 import argparse
 import struct
+from tabulate import tabulate
 from fuzzywuzzy import fuzz
 
 if sys.version_info >= (3,0):
@@ -88,7 +89,7 @@ def main(args):
 	videoSize = os.path.getsize(filePath)
 	fileName = os.path.basename(os.path.splitext(filePath)[0])
 	
-	print "=====================================\nFileName: " + fileName + "\nPath: " + filePath + "\n====================================="
+	print "FileName: " + fileName + "\nPath: " + filePath + "\n"
 	
 	try:
 		data = server.SearchSubtitles(session['token'], [{'moviehash':videoHash, 'moviebytesize':str(videoSize)}])
@@ -116,9 +117,10 @@ def main(args):
 				for j in newscore:
 					if i[1] == j[1]:
 						j[0] += 2
-
-		for s in sorted(newscore, reverse=True):
-			print s[1] + " (Score: " + str(s[0]) + ")"
+		headers = ["Score", "Release Name"]
+		table = sorted(newscore, reverse=True)
+		
+		print tabulate(table, headers, tablefmt="orgtbl")
 	else:
 		print "Found no matches for " + fileName
 	
