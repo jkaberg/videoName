@@ -1,5 +1,4 @@
 # videoName
----
 
 An simple tool to match an renamed media file (based on a hash value) against Opensubtitles database.
 
